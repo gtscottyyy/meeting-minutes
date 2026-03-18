@@ -837,11 +837,16 @@ def build_report(conn: sqlite3.Connection):
   .transcript-toggle button:hover {{ color: var(--text); border-color: var(--accent); }}
   .transcript-body {{ margin-top: 12px; }}
   .transcript-body pre {{
-    background: var(--surface2); border-radius: 8px; font-size: 0.78rem;
+    background: rgba(255,255,255,0.03); border-radius: 8px; font-size: 0.9rem;
     line-height: 1.7; color: #b0bcd4; padding: 16px;
     white-space: pre-wrap; word-break: break-word;
     max-height: 420px; overflow-y: auto;
+    border: 1px solid var(--border);
   }}
+  .transcript-body pre::-webkit-scrollbar {{ width: 8px; }}
+  .transcript-body pre::-webkit-scrollbar-track {{ background: transparent; }}
+  .transcript-body pre::-webkit-scrollbar-thumb {{ background: var(--border); border-radius: 3px; min-height: 40px; }}
+  .transcript-body pre::-webkit-scrollbar-thumb:hover {{ background: var(--accent); }}
 
   .no-results {{ padding: 32px; color: var(--muted); text-align: center; }}
 </style>
