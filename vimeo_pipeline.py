@@ -83,7 +83,7 @@ AUDIO_DIR       = DATA_DIR / "audio"
 TRANSCRIPT_DIR  = DATA_DIR / "transcripts"
 SUMMARY_DIR     = DATA_DIR / "summaries"
 DB_PATH         = DATA_DIR / "videos.db"
-REPORT_PATH     = Path("report.html")
+REPORT_PATH     = Path("index.html")
 
 # ---------------------------------------------------------------------------
 # Database
