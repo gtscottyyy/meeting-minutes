@@ -1,0 +1,31 @@
+=== Wed Mar 18 21:30:09 UTC 2026 ===
+[pull] Pulling latest from GitHub...
+Already up to date.
+[pipeline] Starting vimeo_pipeline.py --cloud...
+Traceback (most recent call last):
+  File "/opt/meeting-minutes/vimeo_pipeline.py", line 33, in <module>
+    from faster_whisper import WhisperModel
+ModuleNotFoundError: No module named 'faster_whisper'
+[alert] No videos stuck at audio_ready
+[git] No changes to commit
+=== done (exit 1) ===
+=== Wed Mar 18 21:30:14 UTC 2026 ===
+[pull] Pulling latest from GitHub...
+Already up to date.
+[pipeline] Starting vimeo_pipeline.py --cloud...
+Traceback (most recent call last):
+  File "/opt/meeting-minutes/vimeo_pipeline.py", line 33, in <module>
+    from faster_whisper import WhisperModel
+ModuleNotFoundError: No module named 'faster_whisper'
+[alert] No videos stuck at audio_ready
+[git] No changes to commit
+=== done (exit 1) ===
+=== Wed Mar 18 21:37:25 UTC 2026 ===
+[pull] Pulling latest from GitHub...
+Already up to date.
+[pipeline] Starting vimeo_pipeline.py --cloud...
+[discover] Fetching video list from https://vimeo.com/goshentownshipohio ...
+[discover] 0 new video(s) found. 206 total in manifest.
+Nothing to process — all discovered videos are fully summarized.
+[report] Written to index.html (0 meetings)
+[alert] No videos stuck at audio_ready
