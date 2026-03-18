@@ -1,0 +1,55 @@
+{
+  "meeting_date": "2021-04-07",
+  "meeting_type": "Special Meeting",
+  "summary": "The Goshen Township Board of Trustees held a special meeting to consider Zoning Case ZC-2021-001, a series of proposed text amendments to the township zoning resolution regarding accessory structures. The Board adopted the Zoning Commission's recommendations on lot coverage percentages (30/40/50% based on lot size), deletion of the 2,000 sq ft maximum for accessory structures, and removal of maximum square footage limits in all zoning districts. However, the Board rejected the Zoning Commission's recommendation to lower the maximum accessory structure height from 25 feet to 18 feet, instead maintaining the 25-foot maximum while removing the restriction tying it to principal building height.",
+  "decisions": [
+    "Adopted agenda unanimously",
+    "Opened and closed public hearing with no public comment",
+    "Approved motion to consider Zoning Case ZC-2021-001",
+    "Approved 701C2A: Maximum lot coverage of 30% for lots half acre and below, 40% for lots over half acre up to one acre, and 50% for lots over one acre (3-0)",
+    "Approved 701C2B: Deletion of the 2,000 square foot maximum aggregate for accessory structures (3-0)",
+    "Approved 701C2C: No maximum square footage of accessory buildings or structures in any zoning district (3-0)",
+    "Denied Zoning Commission's recommended 18-foot height limit; approved modified 701C3: Maximum height of accessory structure shall be 25 feet, removing reference to principal building height (3-0 unanimous)",
+    "Directed Planning and Zoning Director to prepare resolution and proposed text amendments (3-0)",
+    "Adjourned at 7:42 PM"
+  ],
+  "action_items": [
+    "Director Harry Hobart/Holbrook to prepare a resolution and the proposed text amendments as adopted by the Board"
+  ],
+  "key_amounts": [
+    "30% lot coverage for lots half acre and below",
+    "40% lot coverage for lots over half acre up to one acre",
+    "50% lot coverage for lots over one acre",
+    "2,000 sq ft previous maximum for accessory structures (now deleted)",
+    "25-foot maximum height for accessory structures (maintained, modified from Zoning Commission's proposed 18 feet)",
+    "Resolution R-92-2020 initiated the text amendment process",
+    "Clermont County Planning Commission approved 8-0",
+    "Zoning Commission approved all items 5-0"
+  ],
+  "notable_topics": [
+    "Zoning text amendments for accessory structures (lot coverage, square footage, height)",
+    "Lot coverage percentages by lot size tier",
+    "Deletion of 2,000 sq ft aggregate cap on accessory structures",
+    "Removal of maximum square footage restrictions in all zoning districts",
+    "Debate over accessory structure height limit (18 ft vs 25 ft)",
+    "Impact of height restrictions on common building sizes and RV storage",
+    "Agricultural exemptions from zoning restrictions",
+    "Comparison with neighboring township zoning codes",
+    "30-day referendum/petition period before resolution can be signed"
+  ],
+  "attendees": [
+    "Trustee Allen",
+    "Trustee Hausermann",
+    "Trustee Hodges",
+    "Harry Hobart (Planning and Zoning Director)",
+    "Ernie Ramos (legal/approved to form)"
+  ],
+  "sentiment": "routine",
+  "notes": "The Board unanimously rejected the Zoning Commission's recommendation to reduce accessory structure height from 25 feet to 18 feet, finding that 7 of the 12 most common building sizes would not comply with the 18-foot limit. The Board modified the existing 25-foot height rule by removing the clause tying accessory structure height to the principal building height. A 30-day petition period applies before the resolution can be formally signed. There were some procedural mix-ups with the order of motions and roll calls during the meeting.",
+  "video_id": "534223107",
+  "title": "Special BOT Mtg 4721",
+  "upload_date": "NA",
+  "duration_sec": 2563,
+  "vimeo_url": "https://vimeo.com/534223107",
+  "audio_path": "data\\audio\\Special BOT Mtg 4721.mp3"
+}

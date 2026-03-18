@@ -1,0 +1,67 @@
+{
+  "meeting_date": "2021-01-26",
+  "meeting_type": "Regular Meeting",
+  "summary": "The Goshen Township Board of Trustees held their regular meeting on January 26, 2021. Key business included approving road mile certifications, personnel actions including a resignation and a separation of a probationary firefighter, amending an IT contract, and authorizing pre-disciplinary proceedings against a firefighter paramedic following an executive session. The newly elected Clermont County Prosecutor Mark Dekovey introduced himself to the board.",
+  "decisions": [
+    "Motion to adopt the agenda - passed",
+    "Motion to approve payment of bills for January 13\u201326, 2021 - passed (Trustee Hodges abstained due to conflict of interest)",
+    "Motion to approve certificate of road miles (46.626 miles) for Clermont County Engineer for 2021 - passed",
+    "Motion to accept resignation of part-time firefighter paramedic Mark Peters retro to December 17, 2020 - passed",
+    "Motion to release probationary part-time firefighter EMT Michael Krohn from employment effective 1-22-21 - passed",
+    "Motion to hire probationary part-time fitness instructor Paul Hilliard - passed",
+    "Motion to amend IT contract from $2,350/month to $2,560/month (originally approved January 12, 2021) - passed",
+    "Motion to enter executive session at 7:31 PM per ORC 121.22 regarding employee appointment/employment/compensation and bargaining sessions - passed",
+    "Motion to authorize Township Administrator/Fire Chief to initiate pre-disciplinary process for alleged misconduct of a Township Firefighter Paramedic which may result in discharge - passed",
+    "Motion to adjourn at 8:56 PM - passed"
+  ],
+  "action_items": [
+    "Steve Watkins to provide pricing for lighting/motion light and fan for columbarium shelter",
+    "Director Meadows to get road mile certificate signed and returned to Clermont County Engineer",
+    "Township Administrator to present redesigned website at the next trustees meeting",
+    "Township Administrator/Fire Chief to initiate pre-disciplinary process for a firefighter paramedic",
+    "Continue search for part-time zoning inspector",
+    "Follow up on Gaynor Road issue",
+    "Chief Pegram/Harry Holberg to reach out to Attorney General and EPA regarding Combs property"
+  ],
+  "key_amounts": [
+    "$2,560/month - amended IT contract cost (up from $2,350/month)",
+    "46.626 road miles certified for 2021 (approximately 93 lane miles)",
+    "252 zoning permits issued in 2020"
+  ],
+  "notable_topics": [
+    "Introduction of newly elected Clermont County Prosecutor Mark Dekovey",
+    "Certification of 46.626 road miles for 2021 with three new road additions",
+    "Personnel actions: resignation of Mark Peters, separation of Michael Krohn, hiring of Paul Hilliard",
+    "IT contract amendment from $2,350 to $2,560/month",
+    "Township website redesign in progress",
+    "Columbarium shelter improvements - lighting and fan installation",
+    "Combs property pursuit requiring coordination with AG and EPA",
+    "New police cruiser received",
+    "Seven new fire department recruits onboarded",
+    "Zoning department 2020 permit recap - exceeded 2019 numbers",
+    "Executive session regarding employee compensation/discipline",
+    "Authorization of pre-disciplinary process for a firefighter paramedic for alleged misconduct",
+    "First video-recorded meeting for the township"
+  ],
+  "attendees": [
+    "Trustee Lisa Allen",
+    "Trustee Bob Hauserman",
+    "Trustee Dan Hodges",
+    "Mark Dekovey (Clermont County Prosecutor)",
+    "Chief Rose (Police Chief)",
+    "Chief Pegram (Fire Chief/Township Administrator)",
+    "Cheryl (Administration/HR)",
+    "Harry Holberg (Planning and Zoning Director)",
+    "Director Meadows (Roads)",
+    "Ernie (legal counsel reference)",
+    "Lisa (fiscal officer reference)"
+  ],
+  "sentiment": "routine",
+  "notes": "This was noted as the first video-recorded Board of Trustees meeting for Goshen Township. Trustee Hodges abstained from the bill payment vote due to a conflict of interest involving a payment to his employer. The transcript contained significant portions of corrupted/garbled text and repeated boilerplate headers, limiting full extraction of all discussion details. The executive session lasted approximately 83 minutes (7:31 PM to 8:54 PM), which is notably long. A prayer was offered for a family member (Jack) connected to Goshen firefighters who appeared to be dealing with health or personal challenges.",
+  "video_id": "518149772",
+  "title": "1.26.2021 BOT MTG",
+  "upload_date": "NA",
+  "duration_sec": 2010,
+  "vimeo_url": "https://vimeo.com/518149772",
+  "audio_path": "data\\audio\\1.26.2021 BOT MTG.mp3"
+}

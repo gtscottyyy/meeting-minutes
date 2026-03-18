@@ -1,0 +1,54 @@
+{
+  "meeting_date": "2024-08-19",
+  "meeting_type": "Other",
+  "summary": "The Goshen Township Board of Zoning Appeals held a public hearing on case BZA 2024-004, an area variance request for property at 2588 McHenry Road. The applicant, Mr. Helton, sought to reduce the required side yard setback from 10 feet to 5 feet in order to build a new home (two bedrooms and a two-car garage) on his R1-zoned property. Discussion centered on whether the new structure would be attached or detached from an existing workshop/garage structure, with the board advising the applicant that a detached structure would require a new single-family home permit. The board discussed conditions including limiting the structure to no more than 60 feet in length to maintain setback compliance, and the variance was considered for approval.",
+  "decisions": [
+    "Approval of previous meeting minutes from July 15, 2024 (passed with one abstention from Mr. Segal)",
+    "Area variance BZA 2024-004 to reduce side yard setback from 10 feet to 5 feet for property at 2588 McHenry Road appears to have been granted with condition that structure not exceed 60 feet in length",
+    "Motion to adjourn passed"
+  ],
+  "action_items": [
+    "Max Merritt (Zoning Consultant) to review final submitted plans to ensure compliance with 5-foot side yard and 10-foot opposite side yard setbacks and 60-foot length maximum",
+    "Township zoning staff to process applicant's permit - either as building addition ($200) or new home ($750) depending on whether structure is attached or detached",
+    "Board members to recruit two alternates for BZA and Zoning Commission"
+  ],
+  "key_amounts": [
+    "$200 building addition permit fee",
+    "$750 new home permit fee",
+    "$550 difference between addition and new home permit",
+    "1,400 square feet minimum floor area required for single-family dwelling",
+    "723 square foot two-car garage proposed in updated plan",
+    "2,632 total square feet proposed (attached version)",
+    "5-foot proposed side yard setback (reduced from 10-foot requirement)",
+    "75-foot lot width",
+    "60-foot maximum structure length discussed as condition"
+  ],
+  "notable_topics": [
+    "Area variance request BZA 2024-004 for reduced side yard setback at 2588 McHenry Road",
+    "Discussion of whether new structure should be attached or detached from existing building",
+    "Discrepancies between submitted site plan and floor plan dimensions",
+    "Existing structure not meeting minimum 1,400 sq ft residential standard",
+    "Accessory structure rules for properties over two acres in residential zoning",
+    "Recruitment of alternates for BZA and Zoning Commission boards"
+  ],
+  "attendees": [
+    "Bob Hauserman (Vice Chairperson/Chair)",
+    "Mr. Segal (Board member)",
+    "Mr. Shaw (Board member)",
+    "Mr. Theodore (Board member)",
+    "Mr. Langenheim (Board member)",
+    "Mr. Pruitt (Board member - absent)",
+    "Mr. Purcell (Board member)",
+    "Max Merritt (Zoning Consultant)",
+    "Mr. Helton (Applicant)",
+    "Zach Helton (Adjacent property owner / applicant's son)"
+  ],
+  "sentiment": "routine",
+  "notes": "This is a Board of Zoning Appeals (BZA) meeting, not a Board of Trustees meeting, despite repeated transcript artifacts referencing 'Board of Trustees Meeting.' The transcript contains numerous garbled/corrupted text segments likely from poor audio transcription or automated captioning errors. Mr. Pruitt was noted as absent. The applicant's existing structure is described as essentially a garage/workshop rather than a true residence, and the applicant has contested property taxes annually because of this. Next meeting scheduled for September 16, 2024. Meeting adjourned at 7:01 PM.",
+  "video_id": "1000565382",
+  "title": "BZA 8-19-24",
+  "upload_date": "NA",
+  "duration_sec": 1925,
+  "vimeo_url": "https://vimeo.com/1000565382",
+  "audio_path": "data\\audio\\BZA 8-19-24.mp3"
+}

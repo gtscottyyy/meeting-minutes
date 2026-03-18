@@ -1,0 +1,60 @@
+{
+  "meeting_date": "2023-01-17",
+  "meeting_type": "Special Meeting",
+  "summary": "The Goshen Township Board of Trustees held a special workshop meeting to discuss potential changes to the township's zoning code, focusing on protecting agricultural land and increasing minimum lot sizes. The discussion centered on creating a new agricultural zoning district (AG1) separate from the existing R1 residential classification, increasing minimum lot sizes for Planned Unit Developments (PUDs) from the current 5,000 square feet, and potentially raising minimum house sizes. Zoning Director Harry presented the current land use map, overlay districts, and zoning standards, while Prosecutor Julia Brandt advised on legal approaches including creating a new AG1 zoning district rather than using overlay districts.",
+  "decisions": [
+    "Motion to adopt the agenda passed unanimously"
+  ],
+  "action_items": [
+    "Harry to contact Clermont County GIS to obtain a parcel breakdown of all properties five acres and above in the northeast and southeast quadrants",
+    "Harry to research what other townships (Batavia, Pierce, and surrounding areas) have done with agricultural zoning standards",
+    "Harry to prepare site designs showing lot sizes, setbacks, and house footprints to determine appropriate minimum PUD lot sizes",
+    "Harry to provide enlarged quadrant maps with lot sizes for the next meeting",
+    "Julia (prosecutor's office) to research what other townships use for agricultural zoning districts and minimum lot sizes",
+    "Harry to work with the prosecutor's office on draft verbiage for proposed zoning text amendments",
+    "Harry to provide the board with numbers based on lot sizes and home sizes for PUDs"
+  ],
+  "key_amounts": [
+    "Current PUD minimum lot size: 5,000 square feet",
+    "Current R1 minimum lot size: approximately 40,000 square feet (about 1 acre)",
+    "1 acre = 43,560 square feet",
+    "Current minimum house size: 1,400 square feet (referenced as 1,405 sq ft)",
+    "Proportional house size on 7,000 sq ft lot would be approximately 1,960 square feet",
+    "Quarter acre lot = 10,890 square feet",
+    "Half acre lot = 21,780 square feet",
+    "Pelosi property: 151.58 acres",
+    "One referenced property: 27 acres; another: 98 acres"
+  ],
+  "notable_topics": [
+    "Creation of a new AG1 (agricultural) zoning district separate from R1 residential",
+    "Increasing minimum lot sizes for PUD developments above 5,000 square feet",
+    "State Route 28 corridor overlay district review",
+    "Agricultural preservation for northeast and southeast quadrants of the township",
+    "Minimum house size requirements for PUDs",
+    "Difference between overlay districts and standard zoning district changes",
+    "Non-conforming lot concerns when changing zoning designations",
+    "Separation of agricultural and residential zoning classifications",
+    "Mound septic systems versus older leach line systems and lot size implications",
+    "Subdivision regulations and lot split requirements for parcels over five acres"
+  ],
+  "attendees": [
+    "Trustee Allen",
+    "Trustee Hodges",
+    "Trustee Hauserman",
+    "Harry (Zoning Director)",
+    "Dan (referenced as township official)",
+    "Lisa (referenced as township official)",
+    "Bob (referenced as township official)",
+    "Julia Brandt (Prosecutor's office / legal counsel)",
+    "Julie (same as Julia Brandt)",
+    "Matt (attendee/staff)"
+  ],
+  "sentiment": "routine",
+  "notes": "This was a workshop-style special meeting with informal discussion rather than formal action items. The transcript was truncated before the meeting concluded. The meeting included discussion of specific properties (Pelosi Farm, Telford Farms, Burns Farm, Angel Wood, Sullivan's, Cephalo's) as reference points. There was some confusion among trustees about prior discussions regarding agricultural zoning definitions and Ohio Revised Code protections for agricultural uses on five-acre-plus lots. The trustees plan to hold additional meetings to finalize numbers and proceed with text amendments through the formal zoning commission process.",
+  "video_id": "791879986",
+  "title": "BOT Special Meeting 1-17-23.mp4",
+  "upload_date": "NA",
+  "duration_sec": 7453,
+  "vimeo_url": "https://vimeo.com/791879986",
+  "audio_path": "data\\audio\\BOT Special Meeting 1-17-23.mp4.mp3"
+}

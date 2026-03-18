@@ -1,0 +1,30 @@
+{
+  "meeting_date": "2021-03-08",
+  "meeting_type": "Special Meeting",
+  "summary": "The Goshen Township Board of Trustees held a special business meeting for personnel matters on March 8, 2021, at 6 PM. The board adopted the agenda, then adjourned to executive session to consider the appointment, employment, and/or compensation of a public employee in accordance with ORC 121. After returning from executive session, a motion was made and approved, though the specific personnel action was not clearly stated in the transcript.",
+  "decisions": [
+    "Motion to adopt the agenda \u2013 passed",
+    "Motion to adjourn to executive session per ORC 121 to consider appointment, employment, and/or compensation of a public employee \u2013 passed",
+    "Motion following return from executive session (personnel-related) \u2013 passed"
+  ],
+  "action_items": [],
+  "key_amounts": [],
+  "notable_topics": [
+    "Personnel matters",
+    "Executive session for appointment, employment, and/or compensation of a public employee"
+  ],
+  "attendees": [
+    "Bob Hausermann",
+    "Dan Hodges",
+    "Lisa Allen",
+    "Steve (clerk/fiscal officer)"
+  ],
+  "sentiment": "routine",
+  "notes": "Transcript quality is poor with garbled/corrupted text in several places, making some details unclear. The meeting was a brief special session focused solely on personnel matters discussed in executive session.",
+  "video_id": "530942075",
+  "title": "Spc. BOT 3.8.21.mp4",
+  "upload_date": "NA",
+  "duration_sec": 153,
+  "vimeo_url": "https://vimeo.com/530942075",
+  "audio_path": "data\\audio\\Spc. BOT 3.8.21.mp4.mp3"
+}

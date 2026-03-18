@@ -1,0 +1,40 @@
+township:
+  name: "Goshen Township"
+  county: "Clermont County"
+  state: "Ohio"
+  address: "6757 Goshen Road, Goshen, Ohio 45122"
+  vimeo_url: "https://vimeo.com/goshentownshipohio"
+
+officials:
+  - "Bob Hausermann (Trustee Chairperson)"
+  - "Dan Hodges (Trustee Vice Chairperson)"
+  - "Lisa Allen (Trustee Member)"
+  - "Laura Engled (Fiscal Officer)"
+  - "Steve Pegram (Administrator / Fire & EMS Chief)"
+  - "Bob Seyfried (Zoning Director)"
+  - "Bob Rose (Police Chief)"
+
+local_vocabulary:
+  roads:
+    - "Goshen Road"
+    - "Manila Road"
+    - "Linton Road"
+    - "State Route 28"
+    - "State Route 132"
+  places:
+    - "Goshen Township Government Center"
+    - "Clermont County Planning Commission"
+    - "Goshen Zoning Board"
+  procedural:
+    - "motion carries"
+    - "second the motion"
+    - "Board of Trustees"
+    - "fiscal officer"
+    - "rezoning"
+    - "zoning case"
+    - "ordinance"
+    - "adjourn"
+
+report:
+  title: "Goshen Township Meeting Archive"
+  subtitle: "Clermont County, Ohio &mdash; Board of Trustees Public Meetings"

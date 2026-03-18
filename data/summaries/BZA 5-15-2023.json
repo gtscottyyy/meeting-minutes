@@ -1,0 +1,56 @@
+{
+  "meeting_date": "2023-05-15",
+  "meeting_type": "Other",
+  "summary": "The Goshen Township Board of Zoning Appeals held a public hearing on Case No. BZA-2023-006, a variance request to expand a nonconforming commercial structure in a residential zoning district by adding 1,792 square feet for cold storage of cars and auto parts restoration. The Board discussed front and rear yard setback reductions, dumpster placement, landscaping requirements, and propane tank relocation. Neighboring property owners spoke in support. The Board unanimously approved the variance with staff-recommended conditions.",
+  "decisions": [
+    "Motion to amend agenda to add Chairperson's statement and swearing in of witnesses passed unanimously",
+    "Motion to approve video minutes from February 27 meeting passed unanimously",
+    "Motion to approve variance BZA-2023-006 (expansion of nonconforming structure, front yard setback reduction from 50 ft to 8.76 ft, rear yard setback reduction from 50 ft to 21.24 ft) with staff conditions passed unanimously",
+    "Motion to move June BZA meeting from June 19 to June 20, 2023 at 6:30 PM passed unanimously",
+    "Motion to adjourn passed unanimously"
+  ],
+  "action_items": [
+    "Applicant (Luke Perry) to submit a landscape plan to township planning staff for review and approval, including screening/landscaping at rear of building addition",
+    "Applicant to submit dumpster enclosure plan for staff-level review and approval, likely positioned at rear corner of new addition",
+    "Applicant to remove or relocate propane tanks underground",
+    "Applicant to remove the two mobile storage containers from the property",
+    "Applicant to confirm dumpster enclosure materials are consistent with building materials and meet code requirements",
+    "Staff (Liz) to interview an alternate BZA member at the next trustee meeting on May 23"
+  ],
+  "key_amounts": [
+    "1,792 square feet proposed building addition",
+    "Front yard setback reduction from 50 feet to 8.76 feet (lowest lane)",
+    "Rear yard setback reduction from 50 feet to 21.24 feet",
+    "5 foot accessory structure setback from property line for structures under 200 sq ft",
+    "20 foot side yard setback requirement in R3 district"
+  ],
+  "notable_topics": [
+    "Variance request BZA-2023-006 for expansion of nonconforming commercial building in R3 residential district",
+    "Front and rear yard setback reductions for building addition",
+    "Dumpster placement and enclosure requirements",
+    "Propane tank removal or underground relocation",
+    "Removal of mobile storage containers",
+    "Landscaping and screening requirements for residential neighbors",
+    "Rescheduling June BZA meeting from June 19 to June 20",
+    "BZA alternate member recruitment"
+  ],
+  "attendees": [
+    "Mr. Currie (BZA member)",
+    "Mr. Holmes (BZA member)",
+    "Mr. Siegler (BZA member)",
+    "Mr. Shaw (BZA member)",
+    "Mr. Theodore (BZA Chair)",
+    "Liz (Township Zoning Staff)",
+    "Luke Perry (Applicant)",
+    "Dennis Hoffman (neighbor, 6564 State Route 48)",
+    "Joyce Hoffman (neighbor, 6564 State Route 48)"
+  ],
+  "sentiment": "routine",
+  "notes": "This was the BZA's first meeting using a new staff report format with staff recommendations broken down by review criteria. Board members expressed appreciation for the improved format. The property is located at the corner of State Route 48 and Lowest Lane, south of State Route 28. The meeting opened at 6:30 PM and adjourned at 7:00 PM. Despite the video title referencing BZA, the transcript initially refers to it as a Board of Trustees meeting.",
+  "video_id": "827076777",
+  "title": "BZA 5-15-2023",
+  "upload_date": "NA",
+  "duration_sec": 1779,
+  "vimeo_url": "https://vimeo.com/827076777",
+  "audio_path": "data\\audio\\BZA 5-15-2023.mp3"
+}

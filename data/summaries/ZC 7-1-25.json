@@ -1,0 +1,50 @@
+{
+  "meeting_date": "2025-07-01",
+  "meeting_type": "Regular Meeting",
+  "summary": "The Goshen Township Zoning Commission held a regular meeting to consider two text amendment cases to the zoning resolution. Case 2025-003 addressed prohibited activities including vegetation height limits, nuisance abatement, and inoperable vehicle storage. Case 2025-004 proposed increasing minimum lot sizes for residential zoning districts (e.g., R1 to five acres) and adjusting side yard setbacks to reduce density in future developments. Both amendments were unanimously recommended for approval to the Board of Trustees.",
+  "decisions": [
+    "Approved meeting minutes from June 24, 2025 (2 yes, 1 abstain)",
+    "Zoning Case 2025-003: Motion to recommend approval of text amendments on prohibited activities to Board of Trustees passed 3-0",
+    "Zoning Case 2025-004: Motion to recommend approval of text amendments to residential development standards (lot sizes and setbacks) to Board of Trustees passed 3-0",
+    "Motion to adjourn passed 3-0"
+  ],
+  "action_items": [
+    "Staff to research zoning map inaccuracies, particularly regarding properties that may be incorrectly labeled (e.g., R3 vs R1 in areas with septic systems)",
+    "Staff to investigate prior rezoning cases that were not properly filed under previous administrations and submit corrections to Clermont County GIS",
+    "Staff to work with trustees on potential correction amendments to zoning maps where discrepancies are found"
+  ],
+  "key_amounts": [
+    "R1 minimum lot size changed from 40,000/43,560 sq ft to 5 acres",
+    "R2 minimum lot size currently 30,000 sq ft",
+    "R3 minimum lot size currently 12,800 sq ft",
+    "R4 minimum lot size currently 10,000 sq ft",
+    "R5 minimum lot size currently 18,000 sq ft (believed to be error, intended as 8,000 sq ft)",
+    "12-inch height limit for grass/weeds/vegetation before considered a nuisance",
+    "10-foot side yard setbacks currently for R1-R5 (R1 setback being removed)"
+  ],
+  "notable_topics": [
+    "Text amendments for prohibited activities including vegetation maintenance, hazardous materials storage, and inoperable vehicle restrictions (Case 2025-003)",
+    "Residential development standards amendments increasing minimum lot sizes to reduce density (Case 2025-004)",
+    "Zoning map inaccuracies and discrepancies between actual zoning and Clermont County GIS records",
+    "Pre-existing nonconforming status of current lots that don't meet new size requirements",
+    "Discussion of sewer and water availability affecting zoning classifications",
+    "Impact of new lot size requirements on future lot splits"
+  ],
+  "attendees": [
+    "Mr. Currie (Zoning Commission member)",
+    "Mr. Lewis (Zoning Commission member)",
+    "Mr. Pegram (Zoning Commission member)",
+    "Mr. Dinwiddie (absent)",
+    "Mr. Frisbee (absent)",
+    "Mr. Otke (absent)",
+    "Ms. Purcell (absent)"
+  ],
+  "sentiment": "routine",
+  "notes": "Only 3 of 7 commission members were present, just barely making quorum. Multiple zoning map inaccuracies were discussed, with staff acknowledging errors from previous administrations that were never properly filed. Commission member raised concerns about their own property being incorrectly zoned on the map. R5 lot size of 18,000 sq ft was identified as a previous error that should have been 8,000 sq ft. Next meeting scheduled for August 5, 2025, with at least one application expected. Meeting adjourned at 6:54 PM. Some portions of the transcript appear garbled/corrupted.",
+  "video_id": "1098019364",
+  "title": "ZC 7-1-25",
+  "upload_date": "NA",
+  "duration_sec": 1420,
+  "vimeo_url": "https://vimeo.com/1098019364",
+  "audio_path": "data\\audio\\ZC 7-1-25.mp3"
+}

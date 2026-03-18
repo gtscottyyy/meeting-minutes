@@ -1,0 +1,40 @@
+{
+  "meeting_date": "2022-03-21",
+  "meeting_type": "Other",
+  "summary": "This is part 2 of a Goshen Township Board of Zoning Appeals (BZA) meeting. The board returned from executive session and voted to deny the appeal in case BZA 2022-005. They then considered variance request BZA 2022-006 for the same property, zoned R1, seeking relief from code requirements to construct a home behind two existing structures, and voted to approve that variance. The board also discussed upcoming BZA applications, vacancies, and the next meeting date.",
+  "decisions": [
+    "Motion to return from executive session \u2013 approved unanimously",
+    "Motion to deny appeal BZA 2022-005 \u2013 approved unanimously",
+    "Motion to approve variance BZA 2022-006 as submitted \u2013 approved unanimously",
+    "Motion to adjourn \u2013 approved unanimously"
+  ],
+  "action_items": [
+    "Zoning staff to work backwards on notification timelines for the next BZA case to ensure 10-day notice and newspaper publication requirements are met",
+    "Update township website to advertise vacancies for BZA members and zoning commission members"
+  ],
+  "key_amounts": [],
+  "notable_topics": [
+    "Executive session return",
+    "Denial of appeal BZA 2022-005",
+    "Variance request BZA 2022-006 for construction of a home behind existing structures on R1-zoned property",
+    "BZA and Zoning Commission member vacancies",
+    "Next BZA meeting scheduling (tentatively April 18 at 6:30 PM)"
+  ],
+  "attendees": [
+    "Mr. Holmes",
+    "Mr. Siegler",
+    "Mr. Shaw",
+    "Mr. Theodore",
+    "Bob Hausermann",
+    "Rodney Nye",
+    "Jerry Cook"
+  ],
+  "sentiment": "routine",
+  "notes": "Transcript quality is poor with many repeated filler lines (e.g., 'Board of Trustees Meeting, Clermont County, Ohio') likely due to automated transcription errors. This is a BZA (Board of Zoning Appeals) meeting, not a regular Board of Trustees meeting. The auditor's classification of the property was noted as not determinative of zoning.",
+  "video_id": "691095780",
+  "title": "BZA 3.21.22 2 of 2.mp4",
+  "upload_date": "NA",
+  "duration_sec": 623,
+  "vimeo_url": "https://vimeo.com/691095780",
+  "audio_path": "data\\audio\\BZA 3.21.22 2 of 2.mp4.mp3"
+}

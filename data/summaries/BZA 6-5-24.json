@@ -1,0 +1,41 @@
+{
+  "meeting_date": "2024-06-05",
+  "meeting_type": "Regular Meeting",
+  "summary": "The Goshen Township Board of Zoning Appeals held a regular meeting to administer the oath of office to new member John Purcell, approve previous meeting minutes from April 15, 2024, and finalize findings of fact and decisions on three related BZA cases from 2022. The board denied the applicant's administrative appeal and variance requests in cases BZA 2022-011, 012, and 013, ordering that automotive repair heavy use of the property cease immediately.",
+  "decisions": [
+    "Approved meeting minutes from April 15, 2024 (6-0, Purcell should have abstained)",
+    "Approved decision on BZA 2022-011 findings of fact and conclusions of law (5-0, Purcell abstained)",
+    "Approved decision on BZA 2022-012 denying applicant's administrative appeal and ordering automotive repair heavy use to cease immediately (5-0, Purcell abstained)",
+    "Approved decision on BZA 2022-013 denying variance and ordering automotive repair heavy use to cease immediately (5-0, Purcell abstained)",
+    "June 17 regular meeting canceled",
+    "Motion to adjourn at 6:42 PM approved"
+  ],
+  "action_items": [
+    "Staff to send email clarifying cancellation of June 17 regular meeting"
+  ],
+  "key_amounts": [],
+  "notable_topics": [
+    "Oath of office administered to John Purcell as new BZA member",
+    "Finalization of findings of fact and conclusions of law for BZA 2022-011, 012, and 013",
+    "Denial of administrative appeal and variance for automotive repair heavy use of property",
+    "Order for automotive repair heavy use to cease immediately",
+    "Cancellation of June 17 regular meeting"
+  ],
+  "attendees": [
+    "Mr. Siegler",
+    "Mr. Shaw",
+    "Mr. Theodore",
+    "Mr. Langenheim",
+    "Mr. Pruitt",
+    "Mr. Purcell (John Purcell)",
+    "Dennis"
+  ],
+  "sentiment": "routine",
+  "notes": "John Purcell was newly sworn in and mistakenly voted to approve the April 15 minutes he was not present for; this was noted as an error and should have been recorded as an abstain. The transcript contains numerous repeated auto-generated overlays reading 'Board of Trustees Meeting' which appear to be captioning artifacts rather than actual dialogue.",
+  "video_id": "954175547",
+  "title": "BZA 6-5-24",
+  "upload_date": "NA",
+  "duration_sec": 731,
+  "vimeo_url": "https://vimeo.com/954175547",
+  "audio_path": "data\\audio\\BZA 6-5-24.mp3"
+}
