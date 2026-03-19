@@ -25,7 +25,7 @@ import re
 import sqlite3
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import anthropic
@@ -1021,6 +1021,25 @@ def main():
 
     if args.discover:
         return
+
+    # If running --local on a machine that doesn't have the audio files (e.g. Windows
+    # pulling from CT), reset audio_ready videos with missing files back to discovered
+    # so the download step re-fetches them from Vimeo in this same run.
+    if args.local:
+        rows = conn.execute(
+            "SELECT video_id, audio_path FROM videos WHERE status='audio_ready'"
+        ).fetchall()
+        reset = 0
+        for r in rows:
+            if not r["audio_path"] or not Path(r["audio_path"]).exists():
+                conn.execute(
+                    "UPDATE videos SET status='discovered', audio_path=NULL, updated_at=? WHERE video_id=?",
+                    (datetime.now(timezone.utc).isoformat(), r["video_id"])
+                )
+                reset += 1
+        if reset:
+            conn.commit()
+            print(f"[local] Reset {reset} audio_ready video(s) with missing audio → discovered for re-download")
 
     if args.video_id:
         row = get_video(conn, args.video_id)
