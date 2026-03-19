@@ -1052,7 +1052,6 @@ def main():
 
     if not videos:
         print("Nothing to process — all discovered videos are fully summarized.")
-        build_report(conn)
         return
 
     api_key = os.environ.get("ANTHROPIC_API_KEY")
