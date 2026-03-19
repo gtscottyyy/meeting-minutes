@@ -1094,8 +1094,12 @@ def main():
             if summarize(conn, row, client):
                 stats["summarized"] += 1
 
-    print("\n--- Building report ---")
-    build_report(conn)
+    work_done = stats["downloaded"] + stats["groq"] + stats["openai"] + stats["local"] + stats["summarized"]
+    if work_done > 0:
+        print("\n--- Building report ---")
+        build_report(conn)
+    else:
+        print("\n--- No changes — skipping report rebuild ---")
 
     print(f"""
 --- Run Summary ---
