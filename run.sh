@@ -3,7 +3,15 @@ cd /opt/meeting-minutes
 export PATH=/usr/local/bin:/usr/bin:/bin
 
 LOG=/opt/meeting-minutes/logs/cron.log
-UPTIME_KUMA_PUSH_URL=""  # set after creating push monitor in Uptime Kuma
+
+# Load secrets from .env
+set -a; source /opt/meeting-minutes/.env; set +a
+
+telegram() {
+    curl -sf -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+        -d "chat_id=${TELEGRAM_CHAT_ID}" \
+        --data-urlencode "text=$1" >/dev/null 2>&1 || true
+}
 
 echo "=== $(date) ===" >> "$LOG"
 
@@ -29,15 +37,11 @@ if [[ -n "$STUCK" ]]; then
     COUNT=$(echo "$STUCK" | wc -l)
     echo "[alert] ${COUNT} video(s) stuck at audio_ready -- need --local:" >> "$LOG"
     echo "$STUCK" >> "$LOG"
-    if [[ -n "$UPTIME_KUMA_PUSH_URL" ]]; then
-        MSG="${COUNT}+video(s)+need+--local+transcription"
-        curl -sf "${UPTIME_KUMA_PUSH_URL}?status=down&msg=${MSG}&ping=" >/dev/null 2>&1 || true
-    fi
+    LIST=$(echo "$STUCK" | sed 's/^/• /')
+    telegram "🎙 *meeting-minutes* — ${COUNT} video(s) stuck, Windows will pick up at next 10am/10pm run:
+${LIST}"
 else
     echo "[alert] No videos stuck at audio_ready" >> "$LOG"
-    if [[ -n "$UPTIME_KUMA_PUSH_URL" ]]; then
-        curl -sf "${UPTIME_KUMA_PUSH_URL}?status=up&msg=Pipeline+OK&ping=" >/dev/null 2>&1 || true
-    fi
 fi
 
 # Commit and push if anything changed
