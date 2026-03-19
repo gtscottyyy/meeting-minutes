@@ -6,8 +6,9 @@ WINDOWS_HOST="scott@192.168.86.123"
 PIPELINE_DIR="Desktop/vimeo"
 LOG=/opt/meeting-minutes/logs/local_worker.log
 SSH_OPTS="-o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=10"
-TELEGRAM_BOT_TOKEN="8569851779:AAHFr5u8Lydb5RdFhfLDS8hCepk6dfbhHl8"
-TELEGRAM_CHAT_ID="8721931991"
+
+# Load secrets from .env
+set -a; source /opt/meeting-minutes/.env; set +a
 
 telegram() {
     curl -sf -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
