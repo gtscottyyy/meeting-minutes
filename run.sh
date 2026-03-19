@@ -19,7 +19,7 @@ PIPELINE_EXIT=$?
 # Check for videos stuck at audio_ready (need --local on Windows)
 STUCK=$(python3 - << 'EOF'
 import sqlite3
-conn = sqlite3.connect('videos.db')
+conn = sqlite3.connect('data/videos.db')
 rows = conn.execute("SELECT title FROM videos WHERE status='audio_ready'").fetchall()
 for r in rows: print(r[0])
 EOF

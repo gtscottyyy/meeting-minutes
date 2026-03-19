@@ -53,7 +53,7 @@ if [[ $EXIT_CODE -eq 0 ]]; then
     echo "[worker] Pipeline completed successfully" >> "$LOG"
 
     # Push from Windows
-    ssh $SSH_OPTS "$WINDOWS_HOST" "cd $PIPELINE_DIR && git diff --quiet && git diff --cached --quiet || (git add -A && git commit -m 'auto: local transcription $(date +%Y-%m-%d)' && git push)" >> "$LOG" 2>&1
+    ssh $SSH_OPTS "$WINDOWS_HOST" "cd $PIPELINE_DIR && git pull && git diff --quiet && git diff --cached --quiet || (git add . && git commit -m 'auto: local transcription $(date +%Y-%m-%d)' && git push)" >> "$LOG" 2>&1
 
     telegram "✅ *meeting-minutes* — local transcription complete, report updated"
 else

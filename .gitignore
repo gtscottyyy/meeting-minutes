@@ -4,4 +4,4 @@ data/audio/
 __pycache__/
 *.pyc
 logs/
-videos.db
+/videos.db
