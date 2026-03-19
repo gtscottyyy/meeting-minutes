@@ -3,3 +3,5 @@ data/audio/
 .claude/
 __pycache__/
 *.pyc
+logs/
+videos.db
