@@ -689,6 +689,7 @@ def build_report(conn: sqlite3.Connection):
                 data["transcript_url"] = "data/transcripts/" + quote(t_path.name)
             summaries.append(data)
 
+    summaries.sort(key=lambda s: s.get("meeting_date", ""), reverse=True)
     total_meetings  = len(summaries)
     total_decisions = sum(len(s.get("decisions", []))   for s in summaries)
     total_actions   = sum(len(s.get("action_items", [])) for s in summaries)
