@@ -51,6 +51,7 @@ TOWNSHIP_ADDRESS = _twp["address"]
 
 REPORT_TITLE    = _cfg["report"]["title"]
 REPORT_SUBTITLE = _cfg["report"]["subtitle"]
+MEETING_TYPES   = _cfg.get("meeting_types", {})
 
 WHISPER_MODEL_SIZE   = "large-v3-turbo"
 WHISPER_DEVICE       = "cpu"
@@ -546,6 +547,9 @@ SUMMARY_PROMPT = f"""\
 You are analyzing a {TOWNSHIP_NAME} ({TOWNSHIP_COUNTY}, {TOWNSHIP_STATE}) \
 public meeting transcript.
 
+Meeting type prefixes used in video titles: \
+{", ".join(f"{k} = {v}" for k, v in MEETING_TYPES.items())}.
+
 Extract and return a JSON object with these exact fields:
 {{
   "meeting_date":    "YYYY-MM-DD or empty string if unknown",
@@ -729,7 +733,7 @@ def build_report(conn: sqlite3.Connection):
             <div class="card-header">
                 <div>
                     <span class="card-date">{_fmt_date(s.get('meeting_date') or s.get('upload_date',''))}</span>
-                    <span class="card-type">{s.get('meeting_type','Meeting')}</span>
+                    <span class="card-type">{next((v for k, v in MEETING_TYPES.items() if s.get('title','').upper().startswith(k)), s.get('meeting_type','Meeting'))}</span>
                     {_sentiment_badge(s.get('sentiment','routine'))}
                 </div>
                 <div style="text-align:right;display:flex;align-items:center;gap:8px">

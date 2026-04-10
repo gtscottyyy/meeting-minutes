@@ -35,6 +35,11 @@ local_vocabulary:
     - "ordinance"
     - "adjourn"
 
+meeting_types:
+  BOT: "Board of Trustees"
+  ZC: "Zoning Commission"
+  BZA: "Board of Zoning Appeals"
+
 report:
   title: "Goshen Township Meeting Archive"
   subtitle: "Clermont County, Ohio &mdash; Board of Trustees Public Meetings"
