@@ -560,7 +560,7 @@ Extract and return a JSON object with these exact fields:
   "key_amounts":     ["dollar amounts or financial figures with context"],
   "notable_topics":  ["main agenda topics covered"],
   "attendees":       ["names of trustees, officials, or public speakers mentioned"],
-  "sentiment":       "routine | contentious | urgent | ceremonial",
+  "sentiment":       "routine | contentious | urgent | ceremonial | special",
   "notes":           "anything unusual not captured above, or empty string"
 }}
 
@@ -670,6 +670,7 @@ def _sentiment_badge(sentiment: str) -> str:
         "contentious": "#ff6b6b",
         "urgent":      "#ffa500",
         "ceremonial":  "#a78bfa",
+        "special":     "#0d9488",
     }
     color = colors.get(sentiment, "#888")
     return f'<span class="badge" style="background:{color}">{sentiment}</span>'
@@ -728,13 +729,15 @@ def build_report(conn: sqlite3.Connection):
                 </div>
             </div>"""
 
+        _is_special = "SPECIAL" in s.get('title', '').upper()
+        _sentiment  = "special" if _is_special else s.get('sentiment', 'routine')
         cards_html += f"""
-        <div class="card" data-sentiment="{s.get('sentiment','')}" data-date="{s.get('meeting_date') or s.get('upload_date','')}">
+        <div class="card" data-sentiment="{_sentiment}" data-date="{s.get('meeting_date') or s.get('upload_date','')}">
             <div class="card-header">
                 <div>
                     <span class="card-date">{_fmt_date(s.get('meeting_date') or s.get('upload_date',''))}</span>
-                    <span class="card-type">{next((v for k, v in MEETING_TYPES.items() if s.get('title','').upper().startswith(k)), s.get('meeting_type','Meeting'))}</span>
-                    {_sentiment_badge(s.get('sentiment','routine'))}
+                    <span class="card-type">{("Special Meeting" if _is_special else next((v for k, v in MEETING_TYPES.items() if s.get('title','').upper().startswith(k)), s.get('meeting_type','Meeting')))}</span>
+                    {_sentiment_badge(_sentiment)}
                 </div>
                 <div style="text-align:right;display:flex;align-items:center;gap:8px">
                     <span class="card-duration">{_fmt_duration(s.get('duration_sec', 0))}</span>
@@ -811,6 +814,7 @@ def build_report(conn: sqlite3.Connection):
   .card {{ background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; }}
   .card[data-sentiment="contentious"] {{ border-left: 3px solid #ff6b6b; }}
   .card[data-sentiment="urgent"]      {{ border-left: 3px solid #ffa500; }}
+  .card[data-sentiment="special"]     {{ border-left: 3px solid #0d9488; }}
   .card.hidden {{ display: none; }}
 
   .card-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }}
@@ -875,6 +879,7 @@ def build_report(conn: sqlite3.Connection):
   <button class="filter-btn active" onclick="setSentiment('all', this)">All</button>
   <button class="filter-btn" onclick="setSentiment('contentious', this)">Contentious</button>
   <button class="filter-btn" onclick="setSentiment('urgent', this)">Urgent</button>
+  <button class="filter-btn" onclick="setSentiment('special', this)">Special</button>
   <button class="filter-btn" onclick="setSentiment('routine', this)">Routine</button>
   <button class="filter-btn" onclick="setSentiment('ceremonial', this)">Ceremonial</button>
   <button class="filter-btn" id="sort-btn" onclick="toggleSort()">Date ▼</button>
