@@ -474,7 +474,72 @@ def transcribe(conn: sqlite3.Connection, row: sqlite3.Row) -> bool:
     _delete_audio(row)
     return True
 
+def _split_audio(audio_path: Path, duration_sec: int) -> list:
+    """Split audio into chunks safely under the cloud size limit. Returns chunk paths ([] on failure)."""
+    import shutil
+    file_size = audio_path.stat().st_size
+    bytes_per_sec = (file_size / duration_sec) if duration_sec else 4000
+    segment_seconds = max(60, int(CLOUD_WHISPER_SIZE_LIMIT * 0.8 / bytes_per_sec))
+    ffmpeg = str(FFMPEG_DIR / "ffmpeg.exe") if FFMPEG_DIR else "ffmpeg"
+    seg_dir = audio_path.parent / f"{audio_path.stem}_chunks"
+    shutil.rmtree(seg_dir, ignore_errors=True)
+    seg_dir.mkdir(parents=True)
+    r = subprocess.run(
+        [ffmpeg, "-i", str(audio_path), "-f", "segment", "-segment_time", str(segment_seconds),
+         "-c", "copy", "-y", str(seg_dir / "chunk_%03d.mp3")],
+        capture_output=True, text=True,
+    )
+    segs = sorted(seg_dir.glob("chunk_*.mp3"))
+    if r.returncode != 0 or not segs or any(sg.stat().st_size > CLOUD_WHISPER_SIZE_LIMIT for sg in segs):
+        print(f"[transcribe] Could not split {audio_path.name} into chunks under the limit. {r.stderr.strip()[-200:]}")
+        shutil.rmtree(seg_dir, ignore_errors=True)
+        return []
+    print(f"[transcribe] Split into {len(segs)} chunk(s) of ~{segment_seconds // 60} min")
+    return segs
+
+
+def _cloud_whisper(path: Path):
+    """Transcribe one audio file (<= size limit) via Groq, falling back to OpenAI. Returns (text, provider) or (None, None)."""
+    groq_key = os.environ.get("GROQ_API_KEY")
+    if groq_key:
+        try:
+            groq_client = Groq(api_key=groq_key)
+            with open(path, "rb") as f:
+                result = groq_client.audio.transcriptions.create(
+                    model="whisper-large-v3",
+                    file=f,
+                    language="en",
+                    prompt=WHISPER_INITIAL_PROMPT,
+                )
+            return result.text.strip(), "groq"
+        except Exception as e:
+            msg = str(e)
+            if "rate_limit_exceeded" in msg or "429" in msg:
+                print(f"[transcribe] Groq rate limited — falling back to OpenAI...")
+            else:
+                print(f"[transcribe] Groq unavailable — falling back to OpenAI...")
+
+    import openai
+    openai_key = os.environ.get("OPENAI_API_KEY")
+    if openai_key:
+        try:
+            oa_client = openai.OpenAI(api_key=openai_key)
+            with open(path, "rb") as f:
+                result = oa_client.audio.transcriptions.create(
+                    model="whisper-1",
+                    file=f,
+                    language="en",
+                    prompt=WHISPER_INITIAL_PROMPT,
+                )
+            return result.text.strip(), "openai"
+        except Exception as e:
+            print(f"[transcribe] OpenAI failed ({e}).")
+
+    return None, None
+
+
 def transcribe_cloud(conn: sqlite3.Connection, row: sqlite3.Row) -> bool:
+    import shutil
     video_id        = row["video_id"]
     transcript_path = TRANSCRIPT_DIR / f"{safe_name(row['title'])}.txt"
 
@@ -487,61 +552,41 @@ def transcribe_cloud(conn: sqlite3.Connection, row: sqlite3.Row) -> bool:
         print(f"[transcribe] Audio not found for {video_id}, skipping.")
         return False
 
-    file_size = Path(audio_path).stat().st_size
+    audio_path = Path(audio_path)
+    file_size = audio_path.stat().st_size
+    chunk_dir = None
     if file_size > CLOUD_WHISPER_SIZE_LIMIT:
-        print(f"[transcribe] {row['title']} is {file_size / 1024 / 1024:.1f} MB — over 25 MB cloud limit.")
-        return False
+        print(f"[transcribe] {row['title']} is {file_size / 1024 / 1024:.1f} MB — over 25 MB cloud limit, splitting.")
+        segments = _split_audio(audio_path, row["duration_sec"] or 0)
+        if not segments:
+            return False
+        chunk_dir = segments[0].parent
+    else:
+        segments = [audio_path]
 
-    print(f"[transcribe] Cloud transcribing {row['title']} ({file_size / 1024 / 1024:.1f} MB)")
+    print(f"[transcribe] Cloud transcribing {row['title']} ({file_size / 1024 / 1024:.1f} MB, {len(segments)} part(s))")
 
-    # Try Groq first (fast, free tier)
-    groq_key = os.environ.get("GROQ_API_KEY")
-    if groq_key:
-        try:
-            groq_client = Groq(api_key=groq_key)
-            with open(audio_path, "rb") as f:
-                result = groq_client.audio.transcriptions.create(
-                    model="whisper-large-v3",
-                    file=f,
-                    language="en",
-                    prompt=WHISPER_INITIAL_PROMPT,
-                )
-            transcript = result.text.strip()
-            transcript_path.write_text(transcript, encoding="utf-8")
-            set_status(conn, video_id, "transcribed", transcript_path=str(transcript_path))
-            print(f"[transcribe] Saved {transcript_path} ({len(transcript):,} chars) [groq]")
-            _delete_audio(row)
-            return "groq"
-        except Exception as e:
-            msg = str(e)
-            if "rate_limit_exceeded" in msg or "429" in msg:
-                print(f"[transcribe] Groq rate limited — falling back to OpenAI...")
-            else:
-                print(f"[transcribe] Groq unavailable — falling back to OpenAI...")
+    texts, provider = [], None
+    for i, seg in enumerate(segments, 1):
+        text, used = _cloud_whisper(seg)
+        if text is None:
+            if chunk_dir:
+                shutil.rmtree(chunk_dir, ignore_errors=True)
+            return None
+        provider = provider or used
+        texts.append(text)
+        if len(segments) > 1:
+            print(f"[transcribe]   part {i}/{len(segments)} done [{used}]")
 
-    # Fallback to OpenAI
-    import openai
-    openai_key = os.environ.get("OPENAI_API_KEY")
-    if openai_key:
-        try:
-            oa_client = openai.OpenAI(api_key=openai_key)
-            with open(audio_path, "rb") as f:
-                result = oa_client.audio.transcriptions.create(
-                    model="whisper-1",
-                    file=f,
-                    language="en",
-                    prompt=WHISPER_INITIAL_PROMPT,
-                )
-            transcript = result.text.strip()
-            transcript_path.write_text(transcript, encoding="utf-8")
-            set_status(conn, video_id, "transcribed", transcript_path=str(transcript_path))
-            print(f"[transcribe] Saved {transcript_path} ({len(transcript):,} chars) [openai]")
-            _delete_audio(row)
-            return "openai"
-        except Exception as e:
-            print(f"[transcribe] OpenAI failed ({e}).")
+    if chunk_dir:
+        shutil.rmtree(chunk_dir, ignore_errors=True)
 
-    return None
+    transcript = "\n\n".join(texts)
+    transcript_path.write_text(transcript, encoding="utf-8")
+    set_status(conn, video_id, "transcribed", transcript_path=str(transcript_path))
+    print(f"[transcribe] Saved {transcript_path} ({len(transcript):,} chars) [{provider}]")
+    _delete_audio(row)
+    return provider
 
 
 # ---------------------------------------------------------------------------
