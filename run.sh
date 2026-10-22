@@ -44,6 +44,32 @@ else
     echo "[alert] No videos stuck at audio_ready" >> "$LOG"
 fi
 
+# Alert if the pipeline itself failed, or videos never got past discovery
+# (downloads failing for days -- e.g. Vimeo blocking yt-dlp -- otherwise goes unnoticed)
+if [[ $PIPELINE_EXIT -ne 0 ]]; then
+    telegram "⚠️ *meeting-minutes* — pipeline exited with code ${PIPELINE_EXIT}, check logs/cron.log"
+fi
+
+NOT_DOWNLOADED=$(python3 - << 'EOF'
+import sqlite3
+conn = sqlite3.connect('data/videos.db')
+rows = conn.execute(
+    "SELECT title FROM videos WHERE status='discovered' "
+    "AND datetime(discovered_at) < datetime('now','-3 days') ORDER BY discovered_at"
+).fetchall()
+for r in rows: print(r[0])
+EOF
+)
+
+if [[ -n "$NOT_DOWNLOADED" ]]; then
+    COUNT=$(echo "$NOT_DOWNLOADED" | wc -l)
+    echo "[alert] ${COUNT} video(s) discovered 3+ days ago but never downloaded:" >> "$LOG"
+    echo "$NOT_DOWNLOADED" >> "$LOG"
+    LIST=$(echo "$NOT_DOWNLOADED" | head -5 | sed 's/^/• /')
+    telegram "⚠️ *meeting-minutes* — ${COUNT} video(s) found 3+ days ago still not downloaded (downloads likely failing, check yt-dlp/Vimeo):
+${LIST}"
+fi
+
 # Commit and push if anything changed
 if git diff --quiet && git diff --cached --quiet; then
     echo "[git] No changes to commit" >> "$LOG"
