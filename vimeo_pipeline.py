@@ -362,13 +362,18 @@ def download_audio(conn: sqlite3.Connection, row: sqlite3.Row) -> bool:
             "--output", str(AUDIO_DIR / f"{safe_name(row['title'])}.%(ext)s"),
             "--no-playlist",
             "--quiet",
-            row["vimeo_url"],
+            "--no-warnings",
+            # Vimeo blocks anonymous vimeo.com/<id> extraction (yt-dlp #17271);
+            # the embed URL with a vimeo.com referer still works without login.
+            "--referer", "https://vimeo.com/",
+            f"https://player.vimeo.com/video/{video_id}",
         ],
         capture_output=True,
         text=True,
     )
     if result.returncode != 0 or not out_path.exists():
-        print(f"[audio] ERROR: {result.stderr.strip()[:200]}")
+        err_lines = [l for l in result.stderr.strip().splitlines() if l.strip()]
+        print(f"[audio] ERROR: {' | '.join(err_lines[-3:])[:300]}")
         return False
 
     # Compress to mono 32kbps if over cloud size limit
