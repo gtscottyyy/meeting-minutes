@@ -635,7 +635,7 @@ def summarize(conn: sqlite3.Connection, row: sqlite3.Row, client: anthropic.Anth
 
     # Truncate very long transcripts — Claude handles large contexts well but
     # government meetings rarely need more than ~80k chars.
-    max_chars = 80_000
+    max_chars = 200_000
     if len(transcript) > max_chars:
         print(f"[summarize] Truncating transcript from {len(transcript):,} to {max_chars:,} chars")
         transcript = transcript[:max_chars] + "\n\n[...transcript truncated...]"
