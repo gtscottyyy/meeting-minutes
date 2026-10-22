@@ -2,8 +2,8 @@
 # local_worker.sh — runs on CT 103, SSHes into Windows and runs --local pipeline
 # Cron: 10am + 10pm daily
 
-WINDOWS_HOST="scott@192.168.86.123"
-PIPELINE_DIR="Desktop/vimeo"
+WINDOWS_HOST="scott@192.168.86.210"
+PIPELINE_DIR="Desktop/production/meeting-minutes"
 LOG=/opt/meeting-minutes/logs/local_worker.log
 SSH_OPTS="-o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=10"
 
