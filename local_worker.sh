@@ -18,10 +18,29 @@ telegram() {
 
 echo "=== $(date) ===" >> "$LOG"
 
-# Check if Windows is reachable
-if ! ssh $SSH_OPTS "$WINDOWS_HOST" "echo ok" >/dev/null 2>&1; then
-    echo "[worker] Windows not reachable — skipping" >> "$LOG"
-    telegram "⚠️ *meeting-minutes* — Windows not reachable for local transcription run"
+# Nothing to do? Don't bother Windows (and don't alert if it's off) -- the cloud
+# run chunks long audio now, so audio_ready should normally be empty
+LOCAL_STUCK=$(python3 - << 'EOF'
+import sqlite3
+conn = sqlite3.connect('/opt/meeting-minutes/data/videos.db')
+print(conn.execute("SELECT COUNT(*) FROM videos WHERE status='audio_ready'").fetchone()[0])
+EOF
+)
+if [[ "$LOCAL_STUCK" == "0" ]]; then
+    echo "[worker] No audio_ready videos on CT103 — skipping" >> "$LOG"
+    exit 0
+fi
+
+# Check if Windows is reachable (retry -- a single blip shouldn't page anyone)
+REACHABLE=0
+for attempt in 1 2 3; do
+    if ssh $SSH_OPTS "$WINDOWS_HOST" "echo ok" >/dev/null 2>>"$LOG"; then REACHABLE=1; break; fi
+    echo "[worker] ssh attempt ${attempt} failed (ping: $(ping -c1 -W2 192.168.86.210 >/dev/null 2>&1 && echo ok || echo no))" >> "$LOG"
+    sleep 20
+done
+if [[ $REACHABLE -ne 1 ]]; then
+    echo "[worker] Windows not reachable — skipping (${LOCAL_STUCK} video(s) waiting)" >> "$LOG"
+    telegram "⚠️ *meeting-minutes* — Windows not reachable for local transcription run (${LOCAL_STUCK} video(s) waiting)"
     exit 0
 fi
 
