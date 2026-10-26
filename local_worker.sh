@@ -40,7 +40,7 @@ for attempt in 1 2 3; do
 done
 if [[ $REACHABLE -ne 1 ]]; then
     echo "[worker] Windows not reachable — skipping (${LOCAL_STUCK} video(s) waiting)" >> "$LOG"
-    telegram "⚠️ *meeting-minutes* — Windows not reachable for local transcription run (${LOCAL_STUCK} video(s) waiting)"
+    telegram "🔴 meeting-minutes — Windows unreachable, ${LOCAL_STUCK} video(s) waiting for local transcription"
     exit 0
 fi
 
@@ -65,7 +65,6 @@ if [[ "$STUCK" == "0" ]] || [[ -z "$STUCK" ]]; then
 fi
 
 echo "[worker] ${STUCK} audio_ready video(s) found — starting local run on Windows" >> "$LOG"
-telegram "🖥️ *meeting-minutes* — starting local transcription of ${STUCK} video(s) on Windows"
 
 # Run full pipeline on Windows
 ssh $SSH_OPTS "$WINDOWS_HOST" "cd $PIPELINE_DIR && git pull && python vimeo_pipeline.py --local" >> "$LOG" 2>&1
@@ -78,10 +77,10 @@ if [[ $EXIT_CODE -eq 0 ]]; then
     COMMIT_DATE=$(date +%Y-%m-%d)
     ssh $SSH_OPTS "$WINDOWS_HOST" "cd $PIPELINE_DIR && git pull && git diff --quiet && git diff --cached --quiet || (git add . && git commit -m \"auto: local transcription ${COMMIT_DATE}\" && git push)" >> "$LOG" 2>&1
 
-    telegram "✅ *meeting-minutes* — local transcription complete, report updated"
+    telegram "🟢 meeting-minutes — transcribed ${STUCK} video(s), report updated"
 else
     echo "[worker] Pipeline exited with code ${EXIT_CODE}" >> "$LOG"
-    telegram "⚠️ *meeting-minutes* — local pipeline exited with errors (code ${EXIT_CODE}), check logs"
+    telegram "🔴 meeting-minutes — local transcription failed (exit ${EXIT_CODE}), see logs/local_worker.log"
 fi
 
 echo "=== done ===" >> "$LOG"

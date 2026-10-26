@@ -38,7 +38,7 @@ if [[ -n "$STUCK" ]]; then
     echo "[alert] ${COUNT} video(s) stuck at audio_ready -- need --local:" >> "$LOG"
     echo "$STUCK" >> "$LOG"
     LIST=$(echo "$STUCK" | sed 's/^/• /')
-    telegram "🎙 *meeting-minutes* — ${COUNT} video(s) stuck, Windows will pick up at next 10am/10pm run:
+    telegram "🔴 meeting-minutes — ${COUNT} video(s) stuck before transcription (Windows retries 10am/10pm)
 ${LIST}"
 else
     echo "[alert] No videos stuck at audio_ready" >> "$LOG"
@@ -47,7 +47,7 @@ fi
 # Alert if the pipeline itself failed, or videos never got past discovery
 # (downloads failing for days -- e.g. Vimeo blocking yt-dlp -- otherwise goes unnoticed)
 if [[ $PIPELINE_EXIT -ne 0 ]]; then
-    telegram "⚠️ *meeting-minutes* — pipeline exited with code ${PIPELINE_EXIT}, check logs/cron.log"
+    telegram "🔴 meeting-minutes — pipeline failed (exit ${PIPELINE_EXIT}), see logs/cron.log"
 fi
 
 NOT_DOWNLOADED=$(python3 - << 'EOF'
@@ -66,7 +66,7 @@ if [[ -n "$NOT_DOWNLOADED" ]]; then
     echo "[alert] ${COUNT} video(s) discovered 3+ days ago but never downloaded:" >> "$LOG"
     echo "$NOT_DOWNLOADED" >> "$LOG"
     LIST=$(echo "$NOT_DOWNLOADED" | head -5 | sed 's/^/• /')
-    telegram "⚠️ *meeting-minutes* — ${COUNT} video(s) found 3+ days ago still not downloaded (downloads likely failing, check yt-dlp/Vimeo):
+    telegram "🔴 meeting-minutes — ${COUNT} video(s) not downloaded for 3+ days (Vimeo / yt-dlp?)
 ${LIST}"
 fi
 
